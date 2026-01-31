@@ -74,9 +74,9 @@ Scores are aggregated by dimension for the 9-column leaderboard.
 
 ## Learn More
 
-- **Repository:** https://github.com/YOUR_ORG/pi-bench
+- **Repository:** https://github.com/Jyoti-Ranjan-Das845/pi-bench
 - **Documentation:** See pi-bench repo for full specification
-- **Contact:** [Your contact info]
+- **Issues:** https://github.com/Jyoti-Ranjan-Das845/pi-bench/issues
 
 ---
 
