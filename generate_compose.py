@@ -207,6 +207,14 @@ def generate_a2a_scenario(scenario: dict[str, Any]) -> str:
     green = scenario["green_agent"]
     participants = scenario.get("participants", [])
 
+    # Validate that all participants have name="agent" for PI-Bench compatibility
+    for p in participants:
+        name = p.get("name")
+        if name != "agent":
+            print(f"Error: Participant name must be 'agent' for PI-Bench leaderboard compatibility (got: '{name}')")
+            print("Use the 'agent_name' field for custom display names on the leaderboard.")
+            sys.exit(1)
+
     participant_lines = []
     for p in participants:
         lines = [
@@ -216,6 +224,8 @@ def generate_a2a_scenario(scenario: dict[str, Any]) -> str:
         ]
         if "agentbeats_id" in p:
             lines.append(f"agentbeats_id = \"{p['agentbeats_id']}\"")
+        if "agent_name" in p:
+            lines.append(f"agent_name = \"{p['agent_name']}\"")
         participant_lines.append("\n".join(lines) + "\n")
 
     config_section = scenario.get("config", {})

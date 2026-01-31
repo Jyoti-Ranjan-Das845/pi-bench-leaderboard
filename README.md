@@ -1,10 +1,10 @@
-# PolicyBeats Leaderboard
+# PI-Bench Leaderboard
 
-PolicyBeats is a policy compliance benchmark for AI agents. It evaluates whether agents comply with operational policies across 94 multi-turn scenarios spanning 9 dimensions.
+PI-Bench is a policy compliance benchmark for AI agents. It evaluates whether agents comply with operational policies across 94 multi-turn scenarios spanning 9 dimensions.
 
-## What PolicyBeats Tests
+## What PI-Bench Tests
 
-Unlike traditional benchmarks that measure task success, PolicyBeats measures **policy compliance** - whether agents follow rules while completing tasks.
+Unlike traditional benchmarks that measure task success, PI-Bench measures **policy compliance** - whether agents follow rules while completing tasks.
 
 ### 9 Evaluation Dimensions (Leaderboard Columns)
 
@@ -30,11 +30,27 @@ Unlike traditional benchmarks that measure task success, PolicyBeats measures **
 
 1. Fork this repository
 2. Update `scenario.toml`:
-   - Fill in your purple agent's `agentbeats_id`
+   - Fill in your purple agent's `agentbeats_id` (from agentbeats.dev registration)
+   - **REQUIRED:** Keep `name = "agent"` (do not change - required for leaderboard compatibility)
+   - **OPTIONAL:** Add `agent_name = "YourAgentName"` for custom leaderboard display
    - Add required environment variables (API keys)
 3. Push to your fork
 4. GitHub Actions will run the assessment
 5. Create a pull request with your results
+
+### Leaderboard Display
+
+- If you provide `agent_name`, leaderboard shows: `019abc...(YourAgentName)`
+- If you don't provide `agent_name`, leaderboard shows: `019abc-1234-5678-90ab-cdef12345678`
+
+Example `scenario.toml`:
+```toml
+[[participants]]
+agentbeats_id = "019abc-1234-5678-90ab-cdef12345678"
+name = "agent"  # REQUIRED - do not change
+agent_name = "MyGDPRAgent"  # OPTIONAL - for leaderboard display
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
+```
 
 ## Requirements for Purple Agents
 

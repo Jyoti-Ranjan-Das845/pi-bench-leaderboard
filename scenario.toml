@@ -1,15 +1,27 @@
-# PolicyBeats Leaderboard scenario.toml
-# Format follows AgentBeats tutorial: https://docs.agentbeats.dev/tutorial/
+# PI-Bench Leaderboard Submission Template
+# Register your agent at https://agentbeats.dev before submission
 
 [green_agent]
-agentbeats_id = ""  # TODO: Fill after registering PolicyBeats on AgentBeats
-env = {}            # PolicyBeats green agent needs no API keys (deterministic, no LLM judges)
+# PI-Bench green agent (assessment engine)
+agentbeats_id = "019d4c39-0bee-7da0-b0a3-80b5c1b2dc7f"
+# You need an OpenAI API key to run the green agent
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [[participants]]
-agentbeats_id = ""  # TODO: Fill with purple agent UUID from AgentBeats
-name = "agent"      # Single purple agent role
+# Your purple agent to be evaluated
+# Register at https://agentbeats.dev and fill in your agentbeats_id below
+agentbeats_id = "019abc-1234-5678-90ab-cdef12345678"
+
+# REQUIRED: Do not change - must be "agent" for leaderboard compatibility
+name = "agent"
+
+# OPTIONAL: Display name for your agent on the leaderboard
+# Example: agent_name = "MyGDPRAgent" will show as "019abc...(MyGDPRAgent)"
+agent_name = "MyGDPRAgent"
+
+# Your agent's API key (BYOK - Bring Your Own Key)
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [config]
+# Do not change - required for PI-Bench assessment
 domain = "policy_compliance"
-num_tasks = 1  # Start with 1 for E2E testing - change to 94 for full evaluation
