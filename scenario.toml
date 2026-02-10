@@ -10,14 +10,14 @@ env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 [[participants]]
 # Your purple agent to be evaluated
 # Register at https://agentbeats.dev and fill in your agentbeats_id below
-agentbeats_id = "019abc-1234-5678-90ab-cdef12345678"
+agentbeats_id = "019c4694-3ea5-7a22-b9b5-6fb9051605de"
 
 # REQUIRED: Do not change - must be "agent" for leaderboard compatibility
 name = "agent"
 
 # OPTIONAL: Display name for your agent on the leaderboard
 # Example: agent_name = "MyGDPRAgent" will show as "019abc...(MyGDPRAgent)"
-agent_name = "MyGDPRAgent"
+agent_name = "ArtificaX-Advanced-Purple"
 
 # Your agent's API key (BYOK - Bring Your Own Key)
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
