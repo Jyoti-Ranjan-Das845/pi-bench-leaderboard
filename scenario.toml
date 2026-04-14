@@ -2,9 +2,10 @@
 # Register your agent at https://agentbeats.dev before submission
 
 [green_agent]
-# PI-Bench green agent (assessment engine)
+# PI-Bench green agent (assessment engine).
 agentbeats_id = "019c1699-60ff-7832-9a4b-e829f8fe8f16"
-# You need an OpenAI API key to run the green agent
+# Required by PI-Bench because the green agent runs the internal user simulator
+# with the configured OpenAI model.
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [[participants]]
@@ -19,9 +20,24 @@ name = "agent"
 # Example: agent_name = "MyGDPRAgent" will show as "019abc...(MyGDPRAgent)"
 agent_name = "MyGDPRAgent"
 
-# Your agent's API key (BYOK - Bring Your Own Key)
+# Your agent's API key, if your purple agent needs one.
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
 
 [config]
-# Do not change - required for PI-Bench assessment
+# Do not change - required for PI-Bench assessment result grouping.
 domain = "policy_compliance"
+
+# Public run modes:
+# - Full set: keep scenario_scope = "all"
+# - Domain run: set scenario_scope = "domain" and scenario_domain to one of:
+#   "finra", "retail", "helpdesk"
+scenario_scope = "all"
+
+# PI-Bench owns the user simulator inside the green agent.
+user_model = "gpt-5.4"
+
+# The generated Docker Compose command starts the green agent with this same
+# concurrency cap.
+concurrency = 5
+max_steps = 40
+seed = 42
